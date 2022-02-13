@@ -10,10 +10,48 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData(
+      primarySwatch: Colors.indigo,
+      fontFamily: 'Nunito',
+      textTheme: const TextTheme(
+        headline6: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+          fontFamily: 'Nunito',
+        ),
+      ),
+      appBarTheme: AppBarTheme(
+          toolbarTextStyle: ThemeData.light()
+              .textTheme
+              .copyWith(
+                headline6: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  fontFamily: 'Nunito',
+                ),
+              )
+              .bodyText2,
+          titleTextStyle: const TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          )
+          // ThemeData.light()
+          //     .textTheme
+          //     .copyWith(
+          //       headline6: const TextStyle(
+          //         fontWeight: FontWeight.bold,
+          //         fontSize: 20,
+          //         fontFamily: 'Nunito',
+          //       ),
+          //     )
+          //     .headline6,
+          ),
+    );
     return MaterialApp(
-      title: 'Flutter App',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+      title: 'Personal Expenses',
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(secondary: Colors.deepPurple),
       ),
       home: const MyHomePage(title: 'Personal Expenses'),
     );

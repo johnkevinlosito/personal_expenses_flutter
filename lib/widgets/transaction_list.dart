@@ -24,16 +24,16 @@ class TransactionList extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Colors.blueGrey,
+                      color: Theme.of(context).primaryColorDark,
                       width: 1,
                     ),
                   ),
                   child: Text(
                     '₱${transactions[index].amount.toStringAsFixed(2)}',
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.black87),
+                        color: Theme.of(context).primaryColorDark),
                   ),
                 ),
                 Container(
@@ -45,17 +45,18 @@ class TransactionList extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        transactions[index].title,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.black87),
-                      ),
+                      Text(transactions[index].title,
+                          style: Theme.of(context).textTheme.headline6
+                          // const TextStyle(
+                          //     fontWeight: FontWeight.bold,
+                          //     fontSize: 16,
+                          //     color: Colors.black87),
+                          ),
                       Text(
                         DateFormat('EEE, M/d/y')
                             .format(transactions[index].date),
                         style: const TextStyle(
+                          fontWeight: FontWeight.bold,
                           fontSize: 13,
                           color: Colors.blueGrey,
                         ),
