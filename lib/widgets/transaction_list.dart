@@ -32,6 +32,7 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (context, index) {
                 return Card(
+                  elevation: 2,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -48,7 +49,7 @@ class TransactionList extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          '₱${transactions[index].amount.toStringAsFixed(2)}',
+                          '₱${NumberFormat("###,###.##", "en_US").format(transactions[index].amount)}',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
