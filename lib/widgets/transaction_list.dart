@@ -32,59 +32,36 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (context, index) {
                 return Card(
-                  elevation: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 15,
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Theme.of(context).primaryColorDark,
-                            width: 1,
+                  elevation: 3,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: FittedBox(
+                          child: Text(
+                            '₱${NumberFormat("###,###.##", "en_US").format(transactions[index].amount)}',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                        child: Text(
-                          '₱${NumberFormat("###,###.##", "en_US").format(transactions[index].amount)}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Theme.of(context).primaryColorDark),
-                        ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 15,
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(transactions[index].title,
-                                style: Theme.of(context).textTheme.headline6
-                                // const TextStyle(
-                                //     fontWeight: FontWeight.bold,
-                                //     fontSize: 16,
-                                //     color: Colors.black87),
-                                ),
-                            Text(
-                              DateFormat('EEE, M/d/y')
-                                  .format(transactions[index].date),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 13,
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                          ],
-                        ),
+                    ),
+                    title: Text(
+                      transactions[index].title,
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    subtitle: Text(
+                      DateFormat('EEE, M/d/y').format(transactions[index].date),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                        color: Colors.blueGrey,
                       ),
-                    ],
+                    ),
                   ),
                 );
               },
