@@ -17,11 +17,14 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FittedBox(
-          child: Text(
-            '₱${NumberFormat.compact().format(amount)}',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
+        SizedBox(
+          height: 20,
+          child: FittedBox(
+            child: Text(
+              '₱${NumberFormat.compact().format(amount)}',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
